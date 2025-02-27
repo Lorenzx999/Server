@@ -1,6 +1,5 @@
 import { CardKind, CardType, Card, getDeck } from "./cards.mjs";
 
-
 const exercises = new Map<CardKind, string>(
     [
         [ CardKind.Diamonds, "push-ups" ],
