@@ -1,32 +1,5 @@
+import { CardKind, CardType, deck } from "cards";
 
-enum CardKind {
-    Clubs,
-    Diamonds,
-    Spades,
-    Hearts
-}
-
-enum CardType {
-    Ace,
-    Two,
-    Three,
-    Four,
-    Five,
-    Six,
-    Seven,
-    Eight,
-    Nine,
-    Ten,
-    Jack,
-    Queen,
-    King
-}
-
-interface Card {
-    kind: CardKind,
-    type: CardType,
-    icon: string,
-}
 
 const exercises = new Map<CardKind, string>(
     [
@@ -37,26 +10,8 @@ const exercises = new Map<CardKind, string>(
     ]
 );
 
-const deck = [
-    "🂡 ", "🂱 ", "🃁 ", "🃑 ",
-    "🂢 ", "🂲 ", "🃂 ", "🃒 ",
-    "🂣 ", "🂳 ", "🃃 ", "🃓 ",
-    "🂤 ", "🂴 ", "🃄 ", "🃔 ",
-    "🂥 ", "🂵 ", "🃅 ", "🃕 ",
-    "🂦 ", "🂶 ", "🃆 ", "🃖 ",
-    "🂧 ", "🂷 ", "🃇 ", "🃗 ",
-    "🂨 ", "🂸 ", "🃈 ", "🃘 ",
-    "🂩 ", "🂹 ", "🃉 ", "🃙 ",
-    "🂪 ", "🂺 ", "🃊 ", "🃚 ",
-    "🂫 ", "🂻 ", "🃋 ", "🃛 ",
-    "🂭 ", "🂽 ", "🃍 ", "🃝 ",
-    "🂮 ", "🂾 ", "🃎 ", "🃞 ",
-];
-
 function shuffle() {
 }
-
-
 
 function main() {
     console.log(exercises);
