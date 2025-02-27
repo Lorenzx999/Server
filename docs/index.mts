@@ -12,9 +12,14 @@ const exercises = new Map<CardKind, string>(
 function shuffle() {
 }
 
+
 function main() {
     const deck: Card[] = getDeck();
     console.log(deck);
+
+    let i = 0;
+    const card = deck[i];
+    console.log(card);
 }
 
 window.onload = main;
