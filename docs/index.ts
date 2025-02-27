@@ -1,7 +1,6 @@
 
 
 
-
 function main() {
     console.log("greetings");
 }
