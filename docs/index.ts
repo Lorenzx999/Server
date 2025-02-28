@@ -48,6 +48,7 @@ function main() {
     btnNext.onclick = () => current++;
 
     setInterval(() => updateCard(deck[current]), 500);
+    document.body.style.backgroundColor = "blue";
 
 
     //const card = deck[i];
