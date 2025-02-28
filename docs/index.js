@@ -37,21 +37,25 @@ function updateDOM(deck, current) {
     pCard.innerHTML = card.icon;
     document.body.style.backgroundColor = getCardColor(card.kind);
     const path = getCardImageFilename(card);
-    const imgCard = getElement("img_card");
-    imgCard.src = `./icons/cards/${path}`;
+    const imgCards = [
+        getElement("img_card_left1"),
+        getElement("img_card_left2"),
+        getElement("img_card_center"),
+        getElement("img_card_right1"),
+        getElement("img_card_right2"),
+    ];
+    imgCards[2].src = `./icons/cards/${path}`;
     const pText = getElement("p_text");
     pText.innerHTML = EXERCISES.get(card.kind);
 }
 function main() {
-    // TODO: out-of-bounds checking
     let current = 0;
     const deck = getDeck();
     shuffle(deck);
     const btnNext = getElement("btn_next");
-    updateDOM(deck, current);
-    if (current === deck.length - 1) {
+    if (current === deck.length - 1)
         btnNext.disabled = true;
-    }
+    updateDOM(deck, current);
     btnNext.onclick = () => {
         current++;
         updateDOM(deck, current);

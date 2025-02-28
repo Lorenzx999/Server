@@ -50,8 +50,16 @@ function updateDOM(deck: Card[], current: number) {
     document.body.style.backgroundColor = getCardColor(card.kind);
 
     const path = getCardImageFilename(card);
-    const imgCard = getElement<HTMLImageElement>("img_card");
-    imgCard.src = `./icons/cards/${path}`
+
+    const imgCards = [
+        getElement<HTMLImageElement>("img_card_left1"),
+        getElement<HTMLImageElement>("img_card_left2"),
+        getElement<HTMLImageElement>("img_card_center"),
+        getElement<HTMLImageElement>("img_card_right1"),
+        getElement<HTMLImageElement>("img_card_right2"),
+    ];
+
+    imgCards[2].src = `./icons/cards/${path}`
 
     const pText = getElement<HTMLParagraphElement>("p_text");
     pText.innerHTML = EXERCISES.get(card.kind)!;
@@ -59,18 +67,16 @@ function updateDOM(deck: Card[], current: number) {
 }
 
 function main() {
-    // TODO: out-of-bounds checking
     let current = 0;
     const deck: Card[] = getDeck();
     shuffle(deck);
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
 
-    updateDOM(deck, current);
-
-    if (current === deck.length - 1) {
+    if (current === deck.length - 1)
         btnNext.disabled = true;
-    }
+
+    updateDOM(deck, current);
 
     btnNext.onclick = () => {
         current++;
