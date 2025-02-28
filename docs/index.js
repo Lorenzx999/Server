@@ -22,8 +22,10 @@ function modify(xs) {
 function main() {
     const xs = [1, 2, 3];
     console.log(xs);
+    console.log(xs[0]);
     modify(xs);
     console.log(xs);
+    console.log(xs[0]);
     //const deck: Card[] = getDeck();
     //console.log(deck);
     //shuffle(deck);
