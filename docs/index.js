@@ -21,7 +21,7 @@ function main() {
     //console.log(deck);
     //shuffle(deck);
     //console.log(deck);
-    let xs = [1, 2, 3];
+    const xs = [1, 2, 3];
     console.log(xs);
     xs[0] = 123;
     console.log(xs);
