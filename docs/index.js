@@ -14,21 +14,20 @@ function shuffle(deck) {
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
     }
 }
-function updateCard() {
+function updateCard(card) {
     const divCard = getElement("div_card");
     divCard.innerHTML = "";
     const p = document.createElement("p");
-    p.innerHTML = "hi";
+    p.innerHTML = card.icon;
     divCard.appendChild(p);
 }
 function main() {
+    const deck = getDeck();
+    shuffle(deck);
     const btnNext = getElement("btn_next");
     let current = 0;
     btnNext.onclick = () => current++;
-    updateCard();
-    const deck = getDeck();
-    shuffle(deck);
-    console.log(deck);
+    updateCard(deck[current]);
     //const card = deck[i];
     //console.log(card);
 }

@@ -24,25 +24,25 @@ function shuffle(deck: Card[]) {
 }
 
 
-function updateCard() {
+function updateCard(card: Card) {
     const divCard = getElement<HTMLDivElement>("div_card");
     divCard.innerHTML = "";
     const p = document.createElement("p");
-    p.innerHTML = "hi";
+    p.innerHTML = card.icon;
     divCard.appendChild(p);
 }
 
 function main() {
+    const deck: Card[] = getDeck();
+    shuffle(deck);
+
     const btnNext = getElement<HTMLButtonElement>("btn_next");
 
     let current = 0;
     btnNext.onclick = () => current++;
 
-    updateCard();
+    updateCard(deck[current]);
 
-    const deck: Card[] = getDeck();
-    shuffle(deck);
-    console.log(deck);
 
     //const card = deck[i];
     //console.log(card);
