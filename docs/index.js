@@ -49,6 +49,7 @@ function updateDOM(deck, current) {
     const pText = getElement("p_text");
     pText.innerHTML = EXERCISES.get(card.kind);
 }
+// TODO: circular buffer for cards
 function main() {
     let current = 0;
     const deck = getDeck();
