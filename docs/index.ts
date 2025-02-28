@@ -10,9 +10,9 @@ function getElement<T>(id: string): T {
 
 function getCardImagepath(card: Card) {
     const kind = CardKind[card.kind];
+    const type = CardType[card.type];
     console.log(kind);
-
-    throw "TODO";
+    console.log(type);
 }
 
 

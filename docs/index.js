@@ -1,4 +1,4 @@
-import { CardKind, getDeck } from "./cards.js";
+import { CardKind, CardType, getDeck } from "./cards.js";
 // card images from:
 // https://tekeye.uk/playing_cards/svg-playing-cards
 function getElement(id) {
@@ -6,8 +6,9 @@ function getElement(id) {
 }
 function getCardImagepath(card) {
     const kind = CardKind[card.kind];
+    const type = CardType[card.type];
     console.log(kind);
-    throw "TODO";
+    console.log(type);
 }
 const exercises = new Map([
     [CardKind.Diamonds, "push-ups"],
