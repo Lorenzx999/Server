@@ -10,16 +10,10 @@ const exercises = new Map<CardKind, string>(
 );
 
 function shuffle(deck: Card[]) {
-    deck[0] = {
-        kind: CardKind.Clubs,
-        type: CardType.Ace,
-        icon: "FOO",
-    };
-    //for (let i = deck.length - 1; i > 0; i--) {
-    //    const rand = Math.floor(Math.random() * (i + 1));
-    //    [deck[i], deck[rand]] = [deck[rand], deck[i]];
-    //}
-
+    for (let i = deck.length - 1; i > 0; i--) {
+        const rand = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[rand]] = [deck[rand], deck[i]];
+    }
 }
 
 function main() {

@@ -1,4 +1,4 @@
-import { CardKind, CardType, getDeck } from "./cards.js";
+import { CardKind, getDeck } from "./cards.js";
 const exercises = new Map([
     [CardKind.Diamonds, "push-ups"],
     [CardKind.Clubs, "burpees"],
@@ -6,20 +6,14 @@ const exercises = new Map([
     [CardKind.Hearts, "swimmers"],
 ]);
 function shuffle(deck) {
-    deck[0] = {
-        kind: CardKind.Clubs,
-        type: CardType.Ace,
-        icon: "FOO",
-    };
-    //for (let i = deck.length - 1; i > 0; i--) {
-    //    const rand = Math.floor(Math.random() * (i + 1));
-    //    [deck[i], deck[rand]] = [deck[rand], deck[i]];
-    //}
+    for (let i = deck.length - 1; i > 0; i--) {
+        const rand = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[rand]] = [deck[rand], deck[i]];
+    }
 }
 function main() {
     const deck = getDeck();
-    structuredClone(deck);
-    console.log(deck.slice());
+    console.log(structuredClone(deck));
     shuffle(deck);
     console.log(deck);
     //let i = 0;
