@@ -43,6 +43,7 @@ function updateDOM(deck, current) {
     pText.innerHTML = EXERCISES.get(card.kind);
 }
 function main() {
+    // TODO: out-of-bounds checking
     let current = 0;
     const deck = getDeck();
     shuffle(deck);

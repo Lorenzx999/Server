@@ -55,9 +55,11 @@ function updateDOM(deck: Card[], current: number) {
 
     const pText = getElement<HTMLParagraphElement>("p_text");
     pText.innerHTML = EXERCISES.get(card.kind)!;
+
 }
 
 function main() {
+    // TODO: out-of-bounds checking
     let current = 0;
     const deck: Card[] = getDeck();
     shuffle(deck);
