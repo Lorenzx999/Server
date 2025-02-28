@@ -5,10 +5,16 @@ const exercises = new Map([
     [CardKind.Spades, "sit-ups"],
     [CardKind.Hearts, "swimmers"],
 ]);
-function shuffle() {
+function shuffle(deck) {
+    for (var i = deck.length - 1; i > 0; i--) {
+        var rand = Math.floor(Math.random() * (i + 1));
+        [deck[i], deck[rand]] = [deck[rand], deck[i]];
+    }
 }
 function main() {
     const deck = getDeck();
+    console.log(deck);
+    shuffle(deck);
     console.log(deck);
     let i = 0;
     const card = deck[i];
