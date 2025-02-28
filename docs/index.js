@@ -13,7 +13,6 @@ function shuffle(deck) {
 }
 function main() {
     const deck = getDeck();
-    console.log(structuredClone(deck));
     shuffle(deck);
     console.log(deck);
     //let i = 0;
