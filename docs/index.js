@@ -1,4 +1,6 @@
 import { CardKind, getDeck } from "./cards.js";
+// card images from:
+// https://tekeye.uk/playing_cards/svg-playing-cards
 function getElement(id) {
     return document.getElementById(id);
 }

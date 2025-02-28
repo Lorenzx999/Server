@@ -7,7 +7,7 @@
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/icon.png",
+            "src": "icons/pwa/icon.png",
             "type": "image/png",
             "sizes": "512x512"
         }
