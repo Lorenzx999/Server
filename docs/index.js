@@ -18,6 +18,7 @@ function shuffle(deck) {
 }
 function main() {
     const deck = getDeck();
+    structuredClone(deck);
     console.log(deck.slice());
     shuffle(deck);
     console.log(deck);

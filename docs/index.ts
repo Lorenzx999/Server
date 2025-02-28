@@ -24,7 +24,7 @@ function shuffle(deck: Card[]) {
 
 function main() {
     const deck: Card[] = getDeck();
-    console.log(deck.slice());
+    console.log(structuredClone(deck));
     shuffle(deck);
     console.log(deck);
 
