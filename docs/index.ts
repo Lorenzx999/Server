@@ -9,6 +9,8 @@ function getElement<T>(id: string): T {
 }
 
 function getCardImagepath(card: Card) {
+    const kind = CardKind[card.kind];
+    console.log(kind);
 
     throw "TODO";
 }

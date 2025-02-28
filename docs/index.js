@@ -5,6 +5,8 @@ function getElement(id) {
     return document.getElementById(id);
 }
 function getCardImagepath(card) {
+    const kind = CardKind[card.kind];
+    console.log(kind);
     throw "TODO";
 }
 const exercises = new Map([
