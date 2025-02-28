@@ -68,6 +68,10 @@ function main() {
 
     updateDOM(deck, current);
 
+    if (current === deck.length - 1) {
+        btnNext.disabled = true;
+    }
+
     btnNext.onclick = () => {
         current++;
         updateDOM(deck, current);

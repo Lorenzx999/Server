@@ -49,6 +49,9 @@ function main() {
     shuffle(deck);
     const btnNext = getElement("btn_next");
     updateDOM(deck, current);
+    if (current === deck.length - 1) {
+        btnNext.disabled = true;
+    }
     btnNext.onclick = () => {
         current++;
         updateDOM(deck, current);
