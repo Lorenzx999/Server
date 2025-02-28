@@ -39,6 +39,8 @@ function updateDOM(deck, current) {
     const path = getCardImageFilename(card);
     const imgCard = getElement("img_card");
     imgCard.src = `./icons/cards/${path}`;
+    const pText = getElement("p_text");
+    pText.innerHTML = EXERCISES.get(card.kind);
 }
 function main() {
     let current = 0;
