@@ -23,16 +23,10 @@ function shuffle(deck: Card[]) {
 }
 
 function main() {
-    //const deck: Card[] = getDeck();
-    //console.log(deck);
-    //shuffle(deck);
-    //console.log(deck);
-
-
-const xs = [ 1, 2, 3 ];
-console.log(xs);
-xs[0] = 123;
-console.log(xs);
+    const deck: Card[] = getDeck();
+    console.log(deck);
+    shuffle(deck);
+    console.log(deck);
 
     //let i = 0;
     //const card = deck[i];
@@ -40,4 +34,3 @@ console.log(xs);
 }
 
 window.onload = main;
-
