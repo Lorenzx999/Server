@@ -10,6 +10,8 @@ function getElement<T>(id: string): T {
 
 
 
+
+
 const exercises = new Map<CardKind, string>(
     [
         [ CardKind.Diamonds, "push-ups" ],
