@@ -34,33 +34,29 @@ function shuffle(deck: Card[]) {
     }
 }
 
+function updateDOM(deck: Card[], current: number) {
+    const card = deck[current];
 
-function updateCard(card: Card) {
-    const divCard = getElement<HTMLDivElement>("div_card");
-    divCard.innerHTML = "";
-    const p = document.createElement("p");
-    p.innerHTML = card.icon;
-    divCard.appendChild(p);
+    const pCard = getElement<HTMLParagraphElement>("p_card");
+    pCard.innerHTML = card.icon;
+
+    document.body.style.backgroundColor = getCardColor(card.kind);
 }
 
 function main() {
+    let current = 0;
     const deck: Card[] = getDeck();
     shuffle(deck);
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
 
-    let current = 0;
-    btnNext.onclick = () => current++;
+    updateDOM(deck, current);
 
-    setInterval(() => {
-        const card = deck[current];
-        updateCard(card);
-        document.body.style.backgroundColor = getCardColor(card.kind);
-    }, 500);
+    btnNext.onclick = () => {
+        updateDOM(deck, current);
+        current++;
+    };
 
-
-    //const card = deck[i];
-    //console.log(card);
 }
 
 window.onload = main;

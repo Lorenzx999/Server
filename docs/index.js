@@ -24,25 +24,21 @@ function shuffle(deck) {
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
     }
 }
-function updateCard(card) {
-    const divCard = getElement("div_card");
-    divCard.innerHTML = "";
-    const p = document.createElement("p");
-    p.innerHTML = card.icon;
-    divCard.appendChild(p);
+function updateDOM(deck, current) {
+    const card = deck[current];
+    const pCard = getElement("p_card");
+    pCard.innerHTML = card.icon;
+    document.body.style.backgroundColor = getCardColor(card.kind);
 }
 function main() {
+    let current = 0;
     const deck = getDeck();
     shuffle(deck);
     const btnNext = getElement("btn_next");
-    let current = 0;
-    btnNext.onclick = () => current++;
-    setInterval(() => {
-        const card = deck[current];
-        updateCard(card);
-        document.body.style.backgroundColor = getCardColor(card.kind);
-    }, 500);
-    //const card = deck[i];
-    //console.log(card);
+    updateDOM(deck, current);
+    btnNext.onclick = () => {
+        updateDOM(deck, current);
+        current++;
+    };
 }
 window.onload = main;
