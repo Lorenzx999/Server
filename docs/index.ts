@@ -22,23 +22,11 @@ function shuffle(deck: Card[]) {
 
 }
 
-function modify(xs: number[]) {
-    xs[0] = 123;
-}
-
 function main() {
-
-    const xs = [1, 2, 3];
-    console.log(xs);
-    console.log(xs[0]);
-    modify(xs);
-    console.log(xs);
-    console.log(xs[0]);
-
-    //const deck: Card[] = getDeck();
-    //console.log(deck);
-    //shuffle(deck);
-    //console.log(deck);
+    const deck: Card[] = getDeck();
+    console.log(deck.slice());
+    shuffle(deck);
+    console.log(deck);
 
     //let i = 0;
     //const card = deck[i];

@@ -1,4 +1,4 @@
-import { CardKind, CardType } from "./cards.js";
+import { CardKind, CardType, getDeck } from "./cards.js";
 const exercises = new Map([
     [CardKind.Diamonds, "push-ups"],
     [CardKind.Clubs, "burpees"],
@@ -16,20 +16,11 @@ function shuffle(deck) {
     //    [deck[i], deck[rand]] = [deck[rand], deck[i]];
     //}
 }
-function modify(xs) {
-    xs[0] = 123;
-}
 function main() {
-    const xs = [1, 2, 3];
-    console.log(xs);
-    console.log(xs[0]);
-    modify(xs);
-    console.log(xs);
-    console.log(xs[0]);
-    //const deck: Card[] = getDeck();
-    //console.log(deck);
-    //shuffle(deck);
-    //console.log(deck);
+    const deck = getDeck();
+    console.log(deck.slice());
+    shuffle(deck);
+    console.log(deck);
     //let i = 0;
     //const card = deck[i];
     //console.log(card);
