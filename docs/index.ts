@@ -59,7 +59,6 @@ function updateDOM(deck: Card[], current: number) {
         getElement<HTMLImageElement>("img_card_right2"),
     ];
 
-    // BUG: imgCard is null
     for (let i=0; i < imgCards.length; ++i)
         imgCards[i].src = `./icons/cards/${path}`;
 
