@@ -1,5 +1,12 @@
 import { CardKind, CardType, Card, getDeck } from "./cards.js";
 
+
+function getElement<T>(id: string): T {
+    return document.getElementById(id)! as T;
+}
+
+
+
 const exercises = new Map<CardKind, string>(
     [
         [ CardKind.Diamonds, "push-ups" ],
@@ -16,12 +23,27 @@ function shuffle(deck: Card[]) {
     }
 }
 
+
+function updateCard() {
+    const divCard = getElement<HTMLDivElement>("div_card");
+    divCard.innerHTML = "";
+    const p = document.createElement("p");
+    p.innerHTML = "hi";
+    divCard.appendChild(p);
+}
+
 function main() {
+    const btnNext = getElement<HTMLButtonElement>("btn_next");
+
+    let current = 0;
+    btnNext.onclick = () => current++;
+
+    updateCard();
+
     const deck: Card[] = getDeck();
     shuffle(deck);
     console.log(deck);
 
-    //let i = 0;
     //const card = deck[i];
     //console.log(card);
 }
