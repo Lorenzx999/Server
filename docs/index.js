@@ -44,7 +44,8 @@ function updateDOM(deck, current) {
         getElement("img_card_right1"),
         getElement("img_card_right2"),
     ];
-    imgCards[2].src = `./icons/cards/${path}`;
+    for (const card of imgCards)
+        card.src = `./icons/cards/${path}`;
     const pText = getElement("p_text");
     pText.innerHTML = EXERCISES.get(card.kind);
 }
