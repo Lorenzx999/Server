@@ -29,6 +29,11 @@ function main() {
     //console.log(deck);
 
 
+const xs = [ 1, 2, 3 ];
+console.log(xs);
+xs[0] = 123;
+console.log(xs);
+
     //let i = 0;
     //const card = deck[i];
     //console.log(card);
@@ -36,7 +41,3 @@ function main() {
 
 window.onload = main;
 
-const xs = [ 1, 2, 3 ];
-console.log(xs);
-xs[0] = 123;
-console.log(xs);
