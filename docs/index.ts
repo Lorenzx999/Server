@@ -1,4 +1,4 @@
-import { CardKind, CardType, Card, getDeck } from "./cards.mjs";
+import { CardKind, CardType, Card, getDeck } from "./cards.js";
 
 const exercises = new Map<CardKind, string>(
     [
