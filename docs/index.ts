@@ -69,8 +69,8 @@ function main() {
     updateDOM(deck, current);
 
     btnNext.onclick = () => {
-        updateDOM(deck, current);
         current++;
+        updateDOM(deck, current);
     };
 
 }

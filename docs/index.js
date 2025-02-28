@@ -50,8 +50,8 @@ function main() {
     const btnNext = getElement("btn_next");
     updateDOM(deck, current);
     btnNext.onclick = () => {
-        updateDOM(deck, current);
         current++;
+        updateDOM(deck, current);
     };
 }
 window.onload = main;
