@@ -27,7 +27,7 @@ function getCardColor(kind: CardKind): string {
     switch (kind) {
         case CardKind.Clubs:
         case CardKind.Spades:
-            return "black";
+            return "grey";
         case CardKind.Diamonds:
         case CardKind.Hearts:
             return "red";
