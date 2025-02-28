@@ -8,6 +8,9 @@ function getElement<T>(id: string): T {
     return document.getElementById(id)! as T;
 }
 
+function getCardImagepath(card: Card) {
+    throw "TODO";
+}
 
 
 

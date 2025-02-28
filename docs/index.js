@@ -4,6 +4,9 @@ import { CardKind, getDeck } from "./cards.js";
 function getElement(id) {
     return document.getElementById(id);
 }
+function getCardImagepath(card) {
+    throw "TODO";
+}
 const exercises = new Map([
     [CardKind.Diamonds, "push-ups"],
     [CardKind.Clubs, "burpees"],
