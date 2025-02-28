@@ -50,7 +50,8 @@ function updateDOM(deck: Card[], current: number) {
     document.body.style.backgroundColor = getCardColor(card.kind);
 
     const path = getCardImageFilename(card);
-    console.log(path);
+    const imgCard = getElement<HTMLImageElement>("img_card");
+    imgCard.src = `./icons/cards/${path}`
 }
 
 function main() {
