@@ -34,6 +34,8 @@ function updateDOM(deck, current) {
     const pCard = getElement("p_card");
     pCard.innerHTML = card.icon;
     document.body.style.backgroundColor = getCardColor(card.kind);
+    const path = getCardImagepath(card);
+    console.log(path);
 }
 function main() {
     let current = 0;

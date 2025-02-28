@@ -9,6 +9,7 @@ function getElement<T>(id: string): T {
 }
 
 function getCardImagepath(card: Card) {
+
     throw "TODO";
 }
 
@@ -49,6 +50,9 @@ function updateDOM(deck: Card[], current: number) {
     pCard.innerHTML = card.icon;
 
     document.body.style.backgroundColor = getCardColor(card.kind);
+
+    const path = getCardImagepath(card);
+    console.log(path);
 }
 
 function main() {
