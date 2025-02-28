@@ -16,6 +16,12 @@ const exercises = new Map<CardKind, string>(
     ]
 );
 
+// TODO: this
+function getCardColor(kind: CardKind) {
+    switch (kind) {
+    }
+}
+
 function shuffle(deck: Card[]) {
     for (let i = deck.length - 1; i > 0; i--) {
         const rand = Math.floor(Math.random() * (i + 1));
@@ -41,7 +47,7 @@ function main() {
     let current = 0;
     btnNext.onclick = () => current++;
 
-    updateCard(deck[current]);
+    setInterval(() => updateCard(deck[current]), 500);
 
 
     //const card = deck[i];
