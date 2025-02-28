@@ -16,9 +16,14 @@ const exercises = new Map<CardKind, string>(
     ]
 );
 
-// TODO: this
-function getCardColor(kind: CardKind) {
+function getCardColor(kind: CardKind): string {
     switch (kind) {
+        case CardKind.Clubs:
+        case CardKind.Spades:
+            return "black";
+        case CardKind.Diamonds:
+        case CardKind.Hearts:
+            return "red";
     }
 }
 
@@ -47,8 +52,11 @@ function main() {
     let current = 0;
     btnNext.onclick = () => current++;
 
-    setInterval(() => updateCard(deck[current]), 500);
-    document.body.style.backgroundColor = "blue";
+    setInterval(() => {
+        const card = deck[current];
+        updateCard(card);
+        document.body.style.backgroundColor = getCardColor(card.kind);
+    }, 500);
 
 
     //const card = deck[i];
