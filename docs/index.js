@@ -16,11 +16,11 @@ function shuffle(deck) {
     //    [deck[i], deck[rand]] = [deck[rand], deck[i]];
     //}
 }
+const deck = getDeck();
+console.log(deck);
+shuffle(deck);
+console.log(deck);
 function main() {
-    const deck = getDeck();
-    console.log(deck);
-    shuffle(deck);
-    console.log(deck);
     //let i = 0;
     //const card = deck[i];
     //console.log(card);
