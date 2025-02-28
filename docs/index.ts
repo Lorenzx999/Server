@@ -4,21 +4,7 @@ import { CardKind, CardType, Card, getDeck } from "./cards.js";
 // https://tekeye.uk/playing_cards/svg-playing-cards
 
 
-function getElement<T>(id: string): T {
-    return document.getElementById(id)! as T;
-}
-
-function getCardImagepath(card: Card) {
-    const kind = CardKind[card.kind];
-    const type = CardType[card.type];
-    console.log(kind);
-    console.log(type);
-}
-
-
-
-
-const exercises = new Map<CardKind, string>(
+const EXERCISES = new Map<CardKind, string>(
     [
         [ CardKind.Diamonds, "push-ups" ],
         [ CardKind.Clubs,    "burpees"  ],
@@ -26,6 +12,16 @@ const exercises = new Map<CardKind, string>(
         [ CardKind.Hearts,   "swimmers" ],
     ]
 );
+
+function getElement<T>(id: string): T {
+    return document.getElementById(id)! as T;
+}
+
+function getCardImageFilename(card: Card) {
+    const kind = CardKind[card.kind];
+    const type = CardType[card.type];
+    return `${kind}_${type}.svg`;
+}
 
 function getCardColor(kind: CardKind): string {
     switch (kind) {
@@ -53,7 +49,7 @@ function updateDOM(deck: Card[], current: number) {
 
     document.body.style.backgroundColor = getCardColor(card.kind);
 
-    const path = getCardImagepath(card);
+    const path = getCardImageFilename(card);
     console.log(path);
 }
 
