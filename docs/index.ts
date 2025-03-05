@@ -45,15 +45,15 @@ function shuffle(deck: Card[]) {
 }
 
 function updateDOM(state: State) {
-    const card = state.deck[state.current];
-
-    console.log(`current: ${state.current}`);
-    console.log(card);
-
     if (state.current === state.deck.length) {
         state.current = 0;
         shuffle(state.deck);
     }
+
+    const card = state.deck[state.current];
+    console.log(`current: ${state.current}`);
+    console.log(card);
+
 
     document.body.style.backgroundColor = getCardColor(card.kind);
     const path = getCardImageFilename(card);
