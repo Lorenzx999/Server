@@ -1,5 +1,10 @@
 import { CardKind, CardType, Card, getDeck } from "./cards.js";
 
+interface State {
+    current: number,
+    deck: Card[],
+}
+
 const EXERCISES = new Map<CardKind, string>(
     [
         [ CardKind.Diamonds, "push-ups" ],
@@ -39,9 +44,9 @@ function shuffle(deck: Card[]) {
     }
 }
 
-function updateDOM(deck: Card[], current: number) {
-    const card = deck[current];
-    console.log(`current: ${current}`);
+function updateDOM(state: State) {
+    const card = state.deck[state.current];
+    console.log(`current: ${state.current}`);
     console.log(card);
 
     document.body.style.backgroundColor = getCardColor(card.kind);
@@ -61,31 +66,35 @@ function updateDOM(deck: Card[], current: number) {
     const pText = getElement<HTMLParagraphElement>("p_text");
     pText.innerHTML = EXERCISES.get(card.kind)!;
 
+    if (state.current === state.deck.length - 1) {
+        state.current = 0;
+        shuffle(state.deck);
+    }
+
 }
 
+
 function main() {
-    let current = 0;
-    const deck: Card[] = getDeck();
+    let state: State = {
+        current: 0,
+        deck: getDeck(),
+    };
     shuffle(deck);
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
     const btnPrev = getElement<HTMLButtonElement>("btn_prev");
 
-    if (current === deck.length - 1) {
-        current = 0;
-        shuffle(deck);
-    }
 
-    updateDOM(deck, current);
+    updateDOM(state);
 
     btnNext.onclick = () => {
+        updateDOM(state);
         current++;
-        updateDOM(deck, current);
     };
 
     btnPrev.onclick = () => {
+        updateDOM(state);
         current--;
-        updateDOM(deck, current);
     };
 
 }
