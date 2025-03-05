@@ -45,6 +45,12 @@ function shuffle(deck: Card[]) {
 }
 
 function updateDOM(state: State) {
+
+    if (state.current === state.deck.length - 1) {
+        state.current = 0;
+        shuffle(state.deck);
+    }
+
     const card = state.deck[state.current];
     console.log(`current: ${state.current}`);
     console.log(card);
@@ -65,12 +71,6 @@ function updateDOM(state: State) {
 
     const pText = getElement<HTMLParagraphElement>("p_text");
     pText.innerHTML = EXERCISES.get(card.kind)!;
-
-    if (state.current === state.deck.length - 1) {
-        state.current = 0;
-        shuffle(state.deck);
-    }
-
 }
 
 
@@ -89,13 +89,13 @@ window.onload = () => {
     updateDOM(state);
 
     btnNext.onclick = () => {
-        updateDOM(state);
         state.current++;
+        updateDOM(state);
     };
 
     btnPrev.onclick = () => {
-        updateDOM(state);
         state.current--;
+        updateDOM(state);
     };
 
 }

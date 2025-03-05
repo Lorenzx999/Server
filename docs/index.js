@@ -31,6 +31,10 @@ function shuffle(deck) {
     }
 }
 function updateDOM(state) {
+    if (state.current === state.deck.length - 1) {
+        state.current = 0;
+        shuffle(state.deck);
+    }
     const card = state.deck[state.current];
     console.log(`current: ${state.current}`);
     console.log(card);
@@ -47,10 +51,6 @@ function updateDOM(state) {
         card.src = `./icons/cards/${path}`;
     const pText = getElement("p_text");
     pText.innerHTML = EXERCISES.get(card.kind);
-    if (state.current === state.deck.length - 1) {
-        state.current = 0;
-        shuffle(state.deck);
-    }
 }
 window.onload = () => {
     let state = {
@@ -62,11 +62,11 @@ window.onload = () => {
     const btnPrev = getElement("btn_prev");
     updateDOM(state);
     btnNext.onclick = () => {
-        updateDOM(state);
         state.current++;
+        updateDOM(state);
     };
     btnPrev.onclick = () => {
-        updateDOM(state);
         state.current--;
+        updateDOM(state);
     };
 };
