@@ -51,6 +51,7 @@ function update(state) {
     const imgCard = getElement("img_card");
     imgCard.onclick = () => {
         card.isCovered = false;
+        updateDOM(card);
     };
     updateDOM(card);
 }
