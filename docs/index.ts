@@ -67,8 +67,6 @@ function updateDOM(deck: Card[], current: number) {
 
 }
 
-// TODO: circular buffer for cards
-
 function main() {
     let current = 0;
     const deck: Card[] = getDeck();
