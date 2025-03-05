@@ -74,6 +74,7 @@ function updateDOM(state: State) {
 }
 
 
+
 window.onload = () => {
 
     let state: State = {
