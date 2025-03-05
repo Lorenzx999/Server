@@ -33,15 +33,8 @@ function shuffle(deck) {
 function updateDOM(card) {
     document.body.style.backgroundColor = getCardColor(card.kind);
     const path = getCardImageFilename(card);
-    const imgCards = [
-        getElement("img_card_left1"),
-        getElement("img_card_left2"),
-        getElement("img_card_center"),
-        getElement("img_card_right1"),
-        getElement("img_card_right2"),
-    ];
-    for (const card of imgCards)
-        card.src = `./icons/cards/${path}`;
+    const imgCard = getElement("img_card");
+    imgCard.src = `./icons/cards/${path}`;
     const pText = getElement("p_text");
     pText.innerHTML = EXERCISES.get(card.kind);
 }
