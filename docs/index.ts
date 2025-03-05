@@ -62,7 +62,6 @@ function updateDOM(deck: Card[], current: number) {
     //for (let i=0; i < imgCards.length; ++i)
     //    imgCards[i].src = `./icons/cards/${path}`;
 
-
     for (const card of imgCards)
         card.src = `./icons/cards/${path}`;
 
