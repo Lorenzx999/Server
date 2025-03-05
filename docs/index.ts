@@ -73,6 +73,7 @@ function main() {
     shuffle(deck);
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
+    const btnPrev = getElement<HTMLButtonElement>("btn_prev");
 
     if (current === deck.length - 1)
         btnNext.disabled = true;
@@ -81,6 +82,11 @@ function main() {
 
     btnNext.onclick = () => {
         current++;
+        updateDOM(deck, current);
+    };
+
+    btnPrev.onclick = () => {
+        current--;
         updateDOM(deck, current);
     };
 
