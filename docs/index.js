@@ -52,7 +52,7 @@ function updateDOM(state) {
         shuffle(state.deck);
     }
 }
-function main() {
+window.onload = () => {
     let state = {
         current: 0,
         deck: getDeck(),
@@ -69,5 +69,4 @@ function main() {
         updateDOM(state);
         state.current--;
     };
-}
-window.onload = main;
+};

@@ -74,7 +74,7 @@ function updateDOM(state: State) {
 }
 
 
-function main() {
+window.onload = () => {
 
     let state: State = {
         current: 0,
@@ -100,4 +100,3 @@ function main() {
 
 }
 
-window.onload = main;
