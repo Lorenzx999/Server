@@ -84,7 +84,6 @@ function main() {
     const btnNext = getElement<HTMLButtonElement>("btn_next");
     const btnPrev = getElement<HTMLButtonElement>("btn_prev");
 
-
     updateDOM(state);
 
     btnNext.onclick = () => {
