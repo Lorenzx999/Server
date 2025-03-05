@@ -1,6 +1,4 @@
 import { CardKind, CardType, getDeck } from "./cards.js";
-// card images from:
-// https://tekeye.uk/playing_cards/svg-playing-cards
 const EXERCISES = new Map([
     [CardKind.Diamonds, "push-ups"],
     [CardKind.Clubs, "burpees"],

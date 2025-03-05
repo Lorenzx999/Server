@@ -1,3 +1,5 @@
+// https://tekeye.uk/playing_cards/svg-playing-cards
+
 export enum CardKind {
     Clubs,
     Diamonds,

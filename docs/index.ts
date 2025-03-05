@@ -1,9 +1,5 @@
 import { CardKind, CardType, Card, getDeck } from "./cards.js";
 
-// card images from:
-// https://tekeye.uk/playing_cards/svg-playing-cards
-
-
 const EXERCISES = new Map<CardKind, string>(
     [
         [ CardKind.Diamonds, "push-ups" ],
@@ -49,7 +45,6 @@ function updateDOM(deck: Card[], current: number) {
     console.log(card);
 
     document.body.style.backgroundColor = getCardColor(card.kind);
-
     const path = getCardImageFilename(card);
 
     const imgCards = [

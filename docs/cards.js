@@ -1,3 +1,4 @@
+// https://tekeye.uk/playing_cards/svg-playing-cards
 export var CardKind;
 (function (CardKind) {
     CardKind[CardKind["Clubs"] = 0] = "Clubs";
