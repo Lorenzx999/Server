@@ -32,7 +32,7 @@ function shuffle(deck) {
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
     }
 }
-function updateDOM(state, card) {
+function updateDOM(card) {
     document.body.style.backgroundColor = getCardColor(card.kind);
     const imgCard = getElement("img_card");
     const path = getCardImageFilename(card);

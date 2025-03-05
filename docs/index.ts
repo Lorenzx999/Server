@@ -47,7 +47,7 @@ function shuffle(deck: Card[]) {
     }
 }
 
-function updateDOM(state: State, card: Card) {
+function updateDOM(card: Card) {
     document.body.style.backgroundColor = getCardColor(card.kind);
 
     const imgCard = getElement<HTMLImageElement>("img_card");
