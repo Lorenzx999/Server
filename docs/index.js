@@ -63,11 +63,11 @@ function main() {
     updateDOM(state);
     btnNext.onclick = () => {
         updateDOM(state);
-        current++;
+        state.current++;
     };
     btnPrev.onclick = () => {
         updateDOM(state);
-        current--;
+        state.current--;
     };
 }
 window.onload = main;

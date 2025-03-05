@@ -79,7 +79,7 @@ function main() {
         current: 0,
         deck: getDeck(),
     };
-    shuffle(deck);
+    shuffle(state.deck);
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
     const btnPrev = getElement<HTMLButtonElement>("btn_prev");
