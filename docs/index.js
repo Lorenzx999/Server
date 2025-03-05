@@ -11,7 +11,9 @@ function getElement(id) {
 function getCardImageFilename(card) {
     const kind = CardKind[card.kind];
     const type = CardType[card.type];
-    return `${kind}_${type}.svg`;
+    return card.isCovered
+        ? "back_side.svg"
+        : `${kind}_${type}.svg`;
 }
 function getCardColor(kind) {
     switch (kind) {
