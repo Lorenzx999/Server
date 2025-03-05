@@ -59,8 +59,11 @@ function updateDOM(deck: Card[], current: number) {
         getElement<HTMLImageElement>("img_card_right2"),
     ];
 
-    for (let i=0; i < imgCards.length; ++i)
-        imgCards[i].src = `./icons/cards/${path}`;
+    //for (let i=0; i < imgCards.length; ++i)
+    //    imgCards[i].src = `./icons/cards/${path}`;
+
+    for (const card of imgCards)
+        card.src = `./icons/cards/${path}`;
 
     const pText = getElement<HTMLParagraphElement>("p_text");
     pText.innerHTML = EXERCISES.get(card.kind)!;
