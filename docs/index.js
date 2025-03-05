@@ -33,8 +33,9 @@ function shuffle(deck) {
     }
 }
 function updateDOM(deck, current) {
-    console.log(`current: ${current}`);
     const card = deck[current];
+    console.log(`current: ${current}`);
+    console.log(card);
     document.body.style.backgroundColor = getCardColor(card.kind);
     const path = getCardImageFilename(card);
     const imgCards = [
