@@ -30,14 +30,7 @@ function shuffle(deck) {
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
     }
 }
-function updateDOM(state) {
-    if (state.current === state.deck.length) {
-        state.current = 0;
-        shuffle(state.deck);
-    }
-    const card = state.deck[state.current];
-    console.log(`current: ${state.current}`);
-    console.log(card);
+function updateDOM(card) {
     document.body.style.backgroundColor = getCardColor(card.kind);
     const path = getCardImageFilename(card);
     const imgCards = [
@@ -52,6 +45,16 @@ function updateDOM(state) {
     const pText = getElement("p_text");
     pText.innerHTML = EXERCISES.get(card.kind);
 }
+function update(state) {
+    if (state.current === state.deck.length) {
+        state.current = 0;
+        shuffle(state.deck);
+    }
+    const card = state.deck[state.current];
+    console.log(`current: ${state.current}`);
+    console.log(card);
+    updateDOM(card);
+}
 window.onload = () => {
     let state = {
         current: 0,
@@ -60,13 +63,13 @@ window.onload = () => {
     shuffle(state.deck);
     const btnNext = getElement("btn_next");
     const btnPrev = getElement("btn_prev");
-    updateDOM(state);
+    update(state);
     btnNext.onclick = () => {
         state.current++;
-        updateDOM(state);
+        update(state);
     };
     btnPrev.onclick = () => {
         state.current--;
-        updateDOM(state);
+        update(state);
     };
 };
