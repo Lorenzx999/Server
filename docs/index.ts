@@ -49,12 +49,15 @@ function shuffle(deck: Card[]) {
 
 function updateDOM(state: State, card: Card) {
     document.body.style.backgroundColor = getCardColor(card.kind);
-    const path = getCardImageFilename(card);
 
     const imgCard = getElement<HTMLImageElement>("img_card");
-    imgCard.src = `./icons/cards/${path}`;
+    const path    = getCardImageFilename(card);
+    imgCard.src   = `./icons/cards/${path}`;
+    imgCard.onclick = () => {
+        card.isCovered = false;
+    };
 
-    const pText = getElement<HTMLParagraphElement>("p_text");
+    const pText     = getElement<HTMLParagraphElement>("p_text");
     pText.innerHTML = EXERCISES.get(card.kind)!;
 }
 
