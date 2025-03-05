@@ -31,7 +31,7 @@ function shuffle(deck) {
     }
 }
 function updateDOM(state) {
-    if (state.current === state.deck.length - 1) {
+    if (state.current === state.deck.length) {
         state.current = 0;
         shuffle(state.deck);
     }
