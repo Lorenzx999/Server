@@ -89,12 +89,12 @@ function main() {
 
     btnNext.onclick = () => {
         updateDOM(state);
-        current++;
+        state.current++;
     };
 
     btnPrev.onclick = () => {
         updateDOM(state);
-        current--;
+        state.current--;
     };
 
 }
