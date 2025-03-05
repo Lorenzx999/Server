@@ -44,6 +44,7 @@ function shuffle(deck: Card[]) {
 }
 
 function updateDOM(deck: Card[], current: number) {
+    console.log(`current: ${current}`);
     const card = deck[current];
 
     document.body.style.backgroundColor = getCardColor(card.kind);
