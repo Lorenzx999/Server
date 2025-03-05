@@ -57,7 +57,7 @@ function main() {
         current: 0,
         deck: getDeck(),
     };
-    shuffle(deck);
+    shuffle(state.deck);
     const btnNext = getElement("btn_next");
     const btnPrev = getElement("btn_prev");
     updateDOM(state);
