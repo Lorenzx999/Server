@@ -26,6 +26,7 @@ function getCardColor(kind) {
     }
 }
 function shuffle(deck) {
+    console.log("Shuffling...");
     for (let i = deck.length - 1; i > 0; i--) {
         const rand = Math.floor(Math.random() * (i + 1));
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
@@ -33,8 +34,6 @@ function shuffle(deck) {
 }
 function updateDOM(deck, current) {
     const card = deck[current];
-    const pCard = getElement("p_card");
-    pCard.innerHTML = card.icon;
     document.body.style.backgroundColor = getCardColor(card.kind);
     const path = getCardImageFilename(card);
     const imgCards = [
@@ -55,8 +54,10 @@ function main() {
     shuffle(deck);
     const btnNext = getElement("btn_next");
     const btnPrev = getElement("btn_prev");
-    if (current === deck.length - 1)
-        btnNext.disabled = true;
+    if (current === deck.length - 1) {
+        current = 0;
+        shuffle(deck);
+    }
     updateDOM(deck, current);
     btnNext.onclick = () => {
         current++;
