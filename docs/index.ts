@@ -75,10 +75,12 @@ function updateDOM(state: State) {
 
 
 function main() {
+
     let state: State = {
         current: 0,
         deck: getDeck(),
     };
+
     shuffle(state.deck);
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
