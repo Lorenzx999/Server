@@ -53,9 +53,6 @@ function updateDOM(state: State, card: Card) {
     const imgCard = getElement<HTMLImageElement>("img_card");
     const path    = getCardImageFilename(card);
     imgCard.src   = `./icons/cards/${path}`;
-    imgCard.onclick = () => {
-        card.isCovered = false;
-    };
 
     const pText     = getElement<HTMLParagraphElement>("p_text");
     pText.innerHTML = EXERCISES.get(card.kind)!;
@@ -71,6 +68,11 @@ function update(state: State) {
     const card = state.deck[state.current];
     console.log(`current: ${state.current}`);
     console.log(card);
+
+    const imgCard = getElement<HTMLImageElement>("img_card");
+    imgCard.onclick = () => {
+        card.isCovered = false;
+    };
 
     updateDOM(state, card);
 
