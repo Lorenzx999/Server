@@ -52,7 +52,7 @@ function update(state) {
     imgCard.onclick = () => {
         card.isCovered = false;
     };
-    updateDOM(state, card);
+    updateDOM(card);
 }
 window.onload = () => {
     let state = {

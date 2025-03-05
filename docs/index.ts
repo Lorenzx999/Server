@@ -74,7 +74,7 @@ function update(state: State) {
         card.isCovered = false;
     };
 
-    updateDOM(state, card);
+    updateDOM(card);
 
 }
 
