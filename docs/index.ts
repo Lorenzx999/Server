@@ -57,7 +57,7 @@ function updateDOM(card: Card) {
     const pText = getElement<HTMLParagraphElement>("p_text");
 
     pText.innerHTML = card.isCovered
-        ? "<hidden>"
+        ? "hidden"
         : EXERCISES.get(card.kind)!;
 
 }
