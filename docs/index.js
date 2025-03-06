@@ -37,9 +37,11 @@ function updateDOM(card) {
     const imgCard = getElement("img_card");
     const path = getCardImageFilename(card);
     imgCard.src = `./icons/cards/${path}`;
+    const btnNext = getElement("btn_next");
+    btnNext.disabled = card.isCovered;
     const pText = getElement("p_text");
     pText.innerHTML = card.isCovered
-        ? "<hidden>"
+        ? "hidden"
         : EXERCISES.get(card.kind);
 }
 function update(state) {

@@ -54,6 +54,9 @@ function updateDOM(card: Card) {
     const path    = getCardImageFilename(card);
     imgCard.src   = `./icons/cards/${path}`;
 
+    const btnNext = getElement<HTMLButtonElement>("btn_next");
+    btnNext.disabled = card.isCovered;
+
     const pText = getElement<HTMLParagraphElement>("p_text");
 
     pText.innerHTML = card.isCovered
