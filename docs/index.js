@@ -37,8 +37,10 @@ function updateDOM(card) {
     const imgCard = getElement("img_card");
     const path = getCardImageFilename(card);
     imgCard.src = `./icons/cards/${path}`;
-    const pText = getElement("p_text");
-    pText.innerHTML = EXERCISES.get(card.kind);
+    if (!card.isCovered) {
+        const pText = getElement("p_text");
+        pText.innerHTML = EXERCISES.get(card.kind);
+    }
 }
 function update(state) {
     if (state.current === state.deck.length) {

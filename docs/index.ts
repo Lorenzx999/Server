@@ -54,8 +54,11 @@ function updateDOM(card: Card) {
     const path    = getCardImageFilename(card);
     imgCard.src   = `./icons/cards/${path}`;
 
-    const pText     = getElement<HTMLParagraphElement>("p_text");
-    pText.innerHTML = EXERCISES.get(card.kind)!;
+    if (!card.isCovered) {
+        const pText     = getElement<HTMLParagraphElement>("p_text");
+        pText.innerHTML = EXERCISES.get(card.kind)!;
+    }
+
 }
 
 function update(state: State) {
