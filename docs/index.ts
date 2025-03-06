@@ -47,7 +47,7 @@ function shuffle(deck: Card[]) {
     }
 }
 
-function updateDOM(card: Card) {
+function updateDOM(card: Card, current: number) {
     document.body.style.backgroundColor = getCardColor(card.kind);
 
     const imgCard = getElement<HTMLImageElement>("img_card");
@@ -56,6 +56,9 @@ function updateDOM(card: Card) {
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
     btnNext.disabled = card.isCovered;
+
+    const pCurrent = getElement<HTMLParagraphElement>("p_current");
+    pCurrent.innerHTML = `#${current}`;
 
     const pText = getElement<HTMLParagraphElement>("p_text");
 
@@ -79,10 +82,10 @@ function update(state: State) {
     const imgCard = getElement<HTMLImageElement>("img_card");
     imgCard.onclick = () => {
         card.isCovered = !card.isCovered;
-        updateDOM(card);
+        updateDOM(card, state.current);
     };
 
-    updateDOM(card);
+    updateDOM(card, state.current);
 
 }
 

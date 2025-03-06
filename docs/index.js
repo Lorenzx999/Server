@@ -32,13 +32,15 @@ function shuffle(deck) {
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
     }
 }
-function updateDOM(card) {
+function updateDOM(card, current) {
     document.body.style.backgroundColor = getCardColor(card.kind);
     const imgCard = getElement("img_card");
     const path = getCardImageFilename(card);
     imgCard.src = `./icons/cards/${path}`;
     const btnNext = getElement("btn_next");
     btnNext.disabled = card.isCovered;
+    const pCurrent = getElement("p_current");
+    pCurrent.innerHTML = `#${current}`;
     const pText = getElement("p_text");
     pText.innerHTML = card.isCovered
         ? "hidden"
@@ -55,9 +57,9 @@ function update(state) {
     const imgCard = getElement("img_card");
     imgCard.onclick = () => {
         card.isCovered = !card.isCovered;
-        updateDOM(card);
+        updateDOM(card, state.current);
     };
-    updateDOM(card);
+    updateDOM(card, state.current);
 }
 window.onload = () => {
     let state = {
