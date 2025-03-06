@@ -41,7 +41,7 @@ function updateDOM(card) {
     btnNext.disabled = card.isCovered;
     const pText = getElement("p_text");
     pText.innerHTML = card.isCovered
-        ? "<i>hidden</i>"
+        ? "<b><i>hidden</i></b>"
         : EXERCISES.get(card.kind);
 }
 function update(state) {
