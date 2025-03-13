@@ -109,13 +109,12 @@ function game(exercises: Map<CardKind, string>) {
 
 window.onload = () => {
 
-    const text1 = getElement<HTMLInputElement>("text_1");
-    const text2 = getElement<HTMLInputElement>("text_2");
-    const text3 = getElement<HTMLInputElement>("text_3");
-    const text4 = getElement<HTMLInputElement>("text_4");
-
     const btnStart = getElement<HTMLButtonElement>("btn_start");
     const divSetup = getElement<HTMLDivElement>("div_setup");
+    const text1    = getElement<HTMLInputElement>("text_1");
+    const text2    = getElement<HTMLInputElement>("text_2");
+    const text3    = getElement<HTMLInputElement>("text_3");
+    const text4    = getElement<HTMLInputElement>("text_4");
 
     btnStart.onclick = () => {
 
