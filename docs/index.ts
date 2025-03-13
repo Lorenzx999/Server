@@ -89,7 +89,7 @@ function update(state: State) {
 
 }
 
-window.onload = () => {
+function game() {
 
     let state: State = {
         current: 0,
@@ -100,6 +100,7 @@ window.onload = () => {
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
     const btnPrev = getElement<HTMLButtonElement>("btn_prev");
+
 
     update(state);
 
@@ -115,3 +116,12 @@ window.onload = () => {
 
 }
 
+window.onload = () => {
+
+    const btnStart = getElement<HTMLButtonElement>("btn_start");
+
+    btnStart.onclick = () => {
+        game();
+    };
+
+}
