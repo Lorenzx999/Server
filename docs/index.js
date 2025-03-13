@@ -81,6 +81,7 @@ window.onload = () => {
     const text3 = getElement("text_3");
     const text4 = getElement("text_4");
     btnStart.onclick = () => {
+        console.log(text1.value);
         const exercises = new Map([
             [CardKind.Diamonds, text1.value],
             [CardKind.Clubs, text2.value],

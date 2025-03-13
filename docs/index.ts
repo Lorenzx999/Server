@@ -118,6 +118,8 @@ window.onload = () => {
 
     btnStart.onclick = () => {
 
+        console.log(text1.value);
+
         const exercises = new Map<CardKind, string> (
             [
                 [ CardKind.Diamonds, text1.value ],
