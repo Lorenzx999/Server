@@ -109,19 +109,25 @@ function game(exercises: Map<CardKind, string>) {
 
 window.onload = () => {
 
-    const exercises = new Map<CardKind, string> (
-        [
-            [ CardKind.Diamonds, getElement<HTMLInputElement>("text_1").value ],
-            [ CardKind.Clubs,    getElement<HTMLInputElement>("text_2").value ],
-            [ CardKind.Spades,   getElement<HTMLInputElement>("text_3").value ],
-            [ CardKind.Hearts,   getElement<HTMLInputElement>("text_4").value ],
-        ]
-    );
+    const text1 = getElement<HTMLInputElement>("text_1");
+    const text2 = getElement<HTMLInputElement>("text_2");
+    const text3 = getElement<HTMLInputElement>("text_3");
+    const text4 = getElement<HTMLInputElement>("text_4");
 
     const btnStart = getElement<HTMLButtonElement>("btn_start");
     const divSetup = getElement<HTMLDivElement>("div_setup");
 
     btnStart.onclick = () => {
+
+        const exercises = new Map<CardKind, string> (
+            [
+                [ CardKind.Diamonds, text1.value ],
+                [ CardKind.Clubs,    text2.value ],
+                [ CardKind.Spades,   text3.value ],
+                [ CardKind.Hearts,   text4.value ],
+            ]
+        );
+
         divSetup.hidden = true;
         game(exercises);
     };

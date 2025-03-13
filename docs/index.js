@@ -74,15 +74,19 @@ function game(exercises) {
     };
 }
 window.onload = () => {
-    const exercises = new Map([
-        [CardKind.Diamonds, getElement("text_1").value],
-        [CardKind.Clubs, getElement("text_2").value],
-        [CardKind.Spades, getElement("text_3").value],
-        [CardKind.Hearts, getElement("text_4").value],
-    ]);
+    const text1 = getElement("text_1");
+    const text2 = getElement("text_2");
+    const text3 = getElement("text_3");
+    const text4 = getElement("text_4");
     const btnStart = getElement("btn_start");
     const divSetup = getElement("div_setup");
     btnStart.onclick = () => {
+        const exercises = new Map([
+            [CardKind.Diamonds, text1.value],
+            [CardKind.Clubs, text2.value],
+            [CardKind.Spades, text3.value],
+            [CardKind.Hearts, text4.value],
+        ]);
         divSetup.hidden = true;
         game(exercises);
     };
