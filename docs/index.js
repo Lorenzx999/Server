@@ -75,10 +75,10 @@ function game(exercises) {
 }
 window.onload = () => {
     const exercises = new Map([
-        [CardKind.Diamonds, getElement("btn_text1").value],
-        [CardKind.Clubs, getElement("btn_text2").value],
-        [CardKind.Spades, getElement("btn_text3").value],
-        [CardKind.Hearts, getElement("btn_text4").value],
+        [CardKind.Diamonds, getElement("text_1").value],
+        [CardKind.Clubs, getElement("text_2").value],
+        [CardKind.Spades, getElement("text_3").value],
+        [CardKind.Hearts, getElement("text_4").value],
     ]);
     const btnStart = getElement("btn_start");
     const divSetup = getElement("div_setup");

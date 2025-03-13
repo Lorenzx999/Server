@@ -111,10 +111,10 @@ window.onload = () => {
 
     const exercises = new Map<CardKind, string> (
         [
-            [ CardKind.Diamonds, getElement<HTMLInputElement>("btn_text1").value ],
-            [ CardKind.Clubs,    getElement<HTMLInputElement>("btn_text2").value ],
-            [ CardKind.Spades,   getElement<HTMLInputElement>("btn_text3").value ],
-            [ CardKind.Hearts,   getElement<HTMLInputElement>("btn_text4").value ],
+            [ CardKind.Diamonds, getElement<HTMLInputElement>("text_1").value ],
+            [ CardKind.Clubs,    getElement<HTMLInputElement>("text_2").value ],
+            [ CardKind.Spades,   getElement<HTMLInputElement>("text_3").value ],
+            [ CardKind.Hearts,   getElement<HTMLInputElement>("text_4").value ],
         ]
     );
 
