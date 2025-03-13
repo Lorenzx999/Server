@@ -1,10 +1,4 @@
 import { CardKind, CardType, getDeck } from "./cards.js";
-const EXERCISES = new Map([
-    [CardKind.Diamonds, "push-ups"],
-    [CardKind.Clubs, "burpees"],
-    [CardKind.Spades, "sit-ups"],
-    [CardKind.Hearts, "swimmers"],
-]);
 function getElement(id) {
     return document.getElementById(id);
 }
@@ -32,7 +26,7 @@ function shuffle(deck) {
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
     }
 }
-function updateDOM(card, current) {
+function updateDOM(card, current, exercises) {
     document.body.style.backgroundColor = getCardColor(card.kind);
     const imgCard = getElement("img_card");
     const path = getCardImageFilename(card);
@@ -44,9 +38,9 @@ function updateDOM(card, current) {
     const pText = getElement("p_text");
     pText.innerHTML = card.isCovered
         ? "hidden"
-        : EXERCISES.get(card.kind);
+        : exercises.get(card.kind);
 }
-function update(state) {
+function update(state, exercises) {
     if (state.current === state.deck.length) {
         state.current = 0;
         shuffle(state.deck);
@@ -57,11 +51,11 @@ function update(state) {
     const imgCard = getElement("img_card");
     imgCard.onclick = () => {
         card.isCovered = !card.isCovered;
-        updateDOM(card, state.current);
+        updateDOM(card, state.current, exercises);
     };
-    updateDOM(card, state.current);
+    updateDOM(card, state.current, exercises);
 }
-window.onload = () => {
+function game(exercises) {
     let state = {
         current: 0,
         deck: getDeck(),
@@ -69,13 +63,25 @@ window.onload = () => {
     shuffle(state.deck);
     const btnNext = getElement("btn_next");
     const btnPrev = getElement("btn_prev");
-    update(state);
+    update(state, exercises);
     btnNext.onclick = () => {
         state.current++;
-        update(state);
+        update(state, exercises);
     };
     btnPrev.onclick = () => {
         state.current--;
-        update(state);
+        update(state, exercises);
+    };
+}
+window.onload = () => {
+    const btnStart = getElement("btn_start");
+    const exercises = new Map([
+        [CardKind.Diamonds, getElement("btn_text1").value],
+        [CardKind.Clubs, getElement("btn_text2").value],
+        [CardKind.Spades, getElement("btn_text3").value],
+        [CardKind.Hearts, getElement("btn_text4").value],
+    ]);
+    btnStart.onclick = () => {
+        game(exercises);
     };
 };
