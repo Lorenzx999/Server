@@ -74,14 +74,16 @@ function game(exercises) {
     };
 }
 window.onload = () => {
-    const btnStart = getElement("btn_start");
     const exercises = new Map([
         [CardKind.Diamonds, getElement("btn_text1").value],
         [CardKind.Clubs, getElement("btn_text2").value],
         [CardKind.Spades, getElement("btn_text3").value],
         [CardKind.Hearts, getElement("btn_text4").value],
     ]);
+    const btnStart = getElement("btn_start");
+    const divSetup = getElement("div_setup");
     btnStart.onclick = () => {
+        divSetup.hidden = true;
         game(exercises);
     };
 };

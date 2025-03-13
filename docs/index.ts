@@ -109,8 +109,6 @@ function game(exercises: Map<CardKind, string>) {
 
 window.onload = () => {
 
-    const btnStart = getElement<HTMLButtonElement>("btn_start");
-
     const exercises = new Map<CardKind, string> (
         [
             [ CardKind.Diamonds, getElement<HTMLInputElement>("btn_text1").value ],
@@ -120,7 +118,11 @@ window.onload = () => {
         ]
     );
 
+    const btnStart = getElement<HTMLButtonElement>("btn_start");
+    const divSetup = getElement<HTMLDivElement>("div_setup");
+
     btnStart.onclick = () => {
+        divSetup.hidden = true;
         game(exercises);
     };
 
