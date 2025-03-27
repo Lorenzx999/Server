@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "lang": "en-us",
     "name": "FIV Progressive Web Application",
     "description": "FIV PWA",
@@ -10,6 +11,19 @@
             "src": "icons/pwa/icon.png",
             "type": "image/png",
             "sizes": "512x512"
+=======
+    "name": "Deck of Many Things",
+    "short_name": "Cards",
+    "start_url": "index.html",
+    "display": "standalone",
+    "background_color": "#f4f4f4",
+    "theme_color": "#000000",
+    "icons": [
+        {
+            "src": "icon.png",
+            "sizes": "192x192",
+            "type": "image/png"
+>>>>>>> 503e8afaff9e29ed9b03493dd18aa7dcbd5dfdb4
         }
     ]
 }
