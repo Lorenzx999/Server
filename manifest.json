@@ -1,17 +1,4 @@
 {
-<<<<<<< HEAD
-    "lang": "en-us",
-    "name": "FIV Progressive Web Application",
-    "description": "FIV PWA",
-    "start_url": "https://lukasx999.github.io/fitness_pwa/",
-    "display": "standalone",
-    "prefer_related_applications": false,
-    "icons": [
-        {
-            "src": "icons/pwa/icon.png",
-            "type": "image/png",
-            "sizes": "512x512"
-=======
     "name": "Deck of Many Things",
     "short_name": "Cards",
     "start_url": "index.html",
@@ -23,7 +10,6 @@
             "src": "icon.png",
             "sizes": "192x192",
             "type": "image/png"
->>>>>>> 503e8afaff9e29ed9b03493dd18aa7dcbd5dfdb4
         }
     ]
 }
