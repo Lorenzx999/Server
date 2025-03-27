@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="UTF-8" />
+        <link rel="manifest" href="manifest.json" />
+        <script type="module" src="./index.js"></script>
+        <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("./sw.js");
+        }
+        </script>
+        <title>PWA</title>
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+
+        <div id="div_setup">
+            <input type="text" id="text_1"><br><br>
+            <input type="text" id="text_2"><br><br>
+            <input type="text" id="text_3"><br><br>
+            <input type="text" id="text_4"><br><br>
+            <button type="button" id="btn_start">Start</button>
+        </div>
+
+        <div class="center">
+            <p id="p_current"></p>
+        </div>
+
+        <div class="center">
+            <button type="button" id="btn_prev">Previous</button>
+            <img id="img_card">
+            <button disabled type="button" id="btn_next">Next</button>
+        </div>
+
+        <div id="div_center" class="center">
+            <p id="p_text"></p>
+        </div/>
+
+    </body>
+
+</html>
