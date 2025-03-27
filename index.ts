@@ -5,14 +5,6 @@ interface State {
     deck: Card[],
 }
 
-const EXERCISES = new Map<CardKind, string>(
-    [
-        [ CardKind.Diamonds, "push-ups" ],
-        [ CardKind.Clubs,    "burpees"  ],
-        [ CardKind.Spades,   "sit-ups"  ],
-        [ CardKind.Hearts,   "swimmers" ],
-    ]
-);
 
 function getElement<T>(id: string): T {
     return document.getElementById(id)! as T;
@@ -47,7 +39,7 @@ function shuffle(deck: Card[]) {
     }
 }
 
-function updateDOM(card: Card, current: number) {
+function updateDOM(card: Card, current: number, exercises: Map<CardKind, string>) {
     document.body.style.backgroundColor = getCardColor(card.kind);
 
     const imgCard = getElement<HTMLImageElement>("img_card");
@@ -64,11 +56,11 @@ function updateDOM(card: Card, current: number) {
 
     pText.innerHTML = card.isCovered
         ? "hidden"
-        : EXERCISES.get(card.kind)!;
+        : exercises.get(card.kind)!;
 
 }
 
-function update(state: State) {
+function update(state: State, exercises: Map<CardKind, string>) {
 
     if (state.current === state.deck.length) {
         state.current = 0;
@@ -82,14 +74,14 @@ function update(state: State) {
     const imgCard = getElement<HTMLImageElement>("img_card");
     imgCard.onclick = () => {
         card.isCovered = !card.isCovered;
-        updateDOM(card, state.current);
+        updateDOM(card, state.current, exercises);
     };
 
-    updateDOM(card, state.current);
+    updateDOM(card, state.current, exercises);
 
 }
 
-function game() {
+function game(exercises: Map<CardKind, string>) {
 
     let state: State = {
         current: 0,
@@ -101,17 +93,16 @@ function game() {
     const btnNext = getElement<HTMLButtonElement>("btn_next");
     const btnPrev = getElement<HTMLButtonElement>("btn_prev");
 
-
-    update(state);
+    update(state, exercises);
 
     btnNext.onclick = () => {
         state.current++;
-        update(state);
+        update(state, exercises);
     };
 
     btnPrev.onclick = () => {
         state.current--;
-        update(state);
+        update(state, exercises);
     };
 
 }
@@ -119,9 +110,25 @@ function game() {
 window.onload = () => {
 
     const btnStart = getElement<HTMLButtonElement>("btn_start");
+    const divSetup = getElement<HTMLDivElement>("div_setup");
+    const text1    = getElement<HTMLInputElement>("text_1");
+    const text2    = getElement<HTMLInputElement>("text_2");
+    const text3    = getElement<HTMLInputElement>("text_3");
+    const text4    = getElement<HTMLInputElement>("text_4");
 
     btnStart.onclick = () => {
-        game();
+
+        const exercises = new Map<CardKind, string> (
+            [
+                [ CardKind.Diamonds, text1.value ],
+                [ CardKind.Clubs,    text2.value ],
+                [ CardKind.Spades,   text3.value ],
+                [ CardKind.Hearts,   text4.value ],
+            ]
+        );
+
+        divSetup.hidden = true;
+        game(exercises);
     };
 
 }
