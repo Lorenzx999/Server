@@ -56,7 +56,7 @@ function updateDOM(card: Card, current: number, joker: number, exercises: Map<Ca
     const btnJokers = getElement<HTMLButtonElement>("btn_joker");
     const pJokers = getElement<HTMLParagraphElement>("p_jokers");
     pJokers.innerHTML = `${joker} Jokers left!`;
-    btnJokers.disabled = joker === 0;
+    btnJokers.disabled = joker <= 0;
 
     const pText = getElement<HTMLParagraphElement>("p_text");
 
@@ -104,8 +104,10 @@ function game(exercises: Map<CardKind, string>) {
     update(state, exercises);
 
     btnJoker.onclick = () => {
-        state.current++;
-        state.joker--;
+        if (state.joker > 0) {
+            state.current++;
+            state.joker--;
+        }
         update(state, exercises);
     };
 
