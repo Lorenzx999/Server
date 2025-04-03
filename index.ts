@@ -40,7 +40,7 @@ function shuffle(deck: Card[]) {
     }
 }
 
-function updateDOM(card: Card, current: number, exercises: Map<CardKind, string>) {
+function updateDOM(card: Card, current: number, joker: number, exercises: Map<CardKind, string>) {
     document.body.style.backgroundColor = getCardColor(card.kind);
 
     const imgCard = getElement<HTMLImageElement>("img_card");
@@ -52,6 +52,10 @@ function updateDOM(card: Card, current: number, exercises: Map<CardKind, string>
 
     const pCurrent = getElement<HTMLParagraphElement>("p_current");
     pCurrent.innerHTML = `#${current}`;
+
+    const pJokers = getElement<HTMLParagraphElement>("p_jokers");
+    pJokers.innerHTML = `${joker} Jokers left!`;
+    btnNext.disabled = joker === 0;
 
     const pText = getElement<HTMLParagraphElement>("p_text");
 
@@ -75,10 +79,10 @@ function update(state: State, exercises: Map<CardKind, string>) {
     const imgCard = getElement<HTMLImageElement>("img_card");
     imgCard.onclick = () => {
         card.isCovered = !card.isCovered;
-        updateDOM(card, state.current, exercises);
+        updateDOM(card, state.current, state.joker, exercises);
     };
 
-    updateDOM(card, state.current, exercises);
+    updateDOM(card, state.current, state.joker, exercises);
 
 }
 

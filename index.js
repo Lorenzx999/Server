@@ -26,7 +26,7 @@ function shuffle(deck) {
         [deck[i], deck[rand]] = [deck[rand], deck[i]];
     }
 }
-function updateDOM(card, current, exercises) {
+function updateDOM(card, current, joker, exercises) {
     document.body.style.backgroundColor = getCardColor(card.kind);
     const imgCard = getElement("img_card");
     const path = getCardImageFilename(card);
@@ -35,6 +35,9 @@ function updateDOM(card, current, exercises) {
     btnNext.disabled = card.isCovered;
     const pCurrent = getElement("p_current");
     pCurrent.innerHTML = `#${current}`;
+    const pJokers = getElement("p_jokers");
+    pJokers.innerHTML = `${joker} Jokers left!`;
+    btnNext.disabled = joker === 0;
     const pText = getElement("p_text");
     pText.innerHTML = card.isCovered
         ? "hidden"
@@ -51,9 +54,9 @@ function update(state, exercises) {
     const imgCard = getElement("img_card");
     imgCard.onclick = () => {
         card.isCovered = !card.isCovered;
-        updateDOM(card, state.current, exercises);
+        updateDOM(card, state.current, state.joker, exercises);
     };
-    updateDOM(card, state.current, exercises);
+    updateDOM(card, state.current, state.joker, exercises);
 }
 function game(exercises) {
     let state = {
