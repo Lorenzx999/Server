@@ -59,11 +59,17 @@ function game(exercises) {
     let state = {
         current: 0,
         deck: getDeck(),
+        joker: 2,
     };
     shuffle(state.deck);
     const btnNext = getElement("btn_next");
     const btnPrev = getElement("btn_prev");
+    const btnJoker = getElement("btn_joker");
     update(state, exercises);
+    btnJoker.onclick = () => {
+        state.current++;
+        update(state, exercises);
+    };
     btnNext.onclick = () => {
         state.current++;
         update(state, exercises);

@@ -3,6 +3,7 @@ import { CardKind, CardType, Card, getDeck } from "./cards.js";
 interface State {
     current: number,
     deck: Card[],
+    joker: number,
 }
 
 
@@ -86,14 +87,21 @@ function game(exercises: Map<CardKind, string>) {
     let state: State = {
         current: 0,
         deck: getDeck(),
+        joker: 2,
     };
 
     shuffle(state.deck);
 
     const btnNext = getElement<HTMLButtonElement>("btn_next");
     const btnPrev = getElement<HTMLButtonElement>("btn_prev");
+    const btnJoker = getElement<HTMLButtonElement>("btn_joker");
 
     update(state, exercises);
+
+    btnJoker.onclick = () => {
+        state.current++;
+        update(state, exercises);
+    };
 
     btnNext.onclick = () => {
         state.current++;
