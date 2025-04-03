@@ -35,9 +35,10 @@ function updateDOM(card, current, joker, exercises) {
     btnNext.disabled = card.isCovered;
     const pCurrent = getElement("p_current");
     pCurrent.innerHTML = `#${current}`;
+    const btnJokers = getElement("btn_joker");
     const pJokers = getElement("p_jokers");
     pJokers.innerHTML = `${joker} Jokers left!`;
-    btnNext.disabled = joker === 0;
+    btnJokers.disabled = joker <= 0;
     const pText = getElement("p_text");
     pText.innerHTML = card.isCovered
         ? "hidden"
@@ -70,8 +71,10 @@ function game(exercises) {
     const btnJoker = getElement("btn_joker");
     update(state, exercises);
     btnJoker.onclick = () => {
-        state.current++;
-        state.joker--;
+        if (state.joker > 0) {
+            state.current++;
+            state.joker--;
+        }
         update(state, exercises);
     };
     btnNext.onclick = () => {
