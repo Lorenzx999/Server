@@ -71,6 +71,7 @@ function game(exercises) {
     update(state, exercises);
     btnJoker.onclick = () => {
         state.current++;
+        state.joker--;
         update(state, exercises);
     };
     btnNext.onclick = () => {

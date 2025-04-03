@@ -104,6 +104,7 @@ function game(exercises: Map<CardKind, string>) {
 
     btnJoker.onclick = () => {
         state.current++;
+        state.joker--;
         update(state, exercises);
     };
 
